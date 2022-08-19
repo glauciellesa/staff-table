@@ -1,5 +1,5 @@
 function init() {
-    const url = 'http://files.cod3r.com.br/curso-js/funcionarios.json'
+    const url = 'https://raw.githubusercontent.com/glauciellesa/staff-table/master/data/funcionarios.json'
     axios.get(url).then(response => {
         console.log(response)
         fillStaffTable(response.data)
