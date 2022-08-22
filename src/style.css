@@ -1,5 +1,54 @@
+:root {
+    --clr-base: #f3f3f3;
+    --clr-text: #009870;
+}
+
+/* @media (prefers-color-scheme: dark){
+    :root {
+        --clt-base: #333;
+        -clt-text: #ddd;
+    }
+} */
+
 h1{
-    color:#009879
+    color:var(--clr-text);
+}
+
+.search-engine{
+    background-color: var(--clr-base);
+    border: solid 2px var(--clr-text);
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    border-radius: 10px;
+    width: 300px;
+    height: 32px;
+}
+
+.search-text{
+    background-color: transparent;
+    padding-left: 5px;
+    font-size: 18px;
+    border: none;
+    width: 190px;
+    height: 32px;
+}
+
+.search-bnt{
+    font-weight: bold;
+    background-color: var(--clr-text);
+    color: whitesmoke;
+    border-radius: 0 7px 7px 0;
+    border: none;
+    width: 60px;
+    height: 32px;
+}
+.search-icon{
+    color:#009870;
+    align-self: center;
+    font-size: 25px;
+    width: 30px;
+    padding-left: 7px;
 }
 
 .content-table{
@@ -13,7 +62,7 @@ h1{
 }
 
 .content-table thead th{
-    background-color: #009879;
+    background-color:var(--clr-text);
     color: whitesmoke;
     text-align: left;
     font-weight: bold;
