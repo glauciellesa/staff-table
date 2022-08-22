@@ -1,6 +1,6 @@
-/* ============== Fill Table ============== */
+/* =========== Fill table =========== */
 function init() {
-    const url = 'https://raw.githubusercontent.com/glauciellesa/staff-table/master/data/funcionarios.json'
+    const url = 'https://raw.githubusercontent.com/glauciellesa/staff-table/master/src/data/funcionarios.json'
     axios.get(url).then(response => {
         console.log(response)
         fillStaffTable(response.data)
@@ -30,6 +30,7 @@ function fillStaffTable(staff) {
 
 init()
 
-
-/* ============== Search Engine ============== */
-
+/* =========== Search =========== */
+/* 
+let searchWord = document.querySelectorAll('tr')
+console.log(searchWord) */
