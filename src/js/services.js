@@ -4,7 +4,7 @@ let data = null
 
 export async function getData() {
     if (data === null) {
-        const url = 'https://raw.githubusercontent.com/glauciellesa/staff-table/master/docs/data/funcionarios.json'
+        const url = 'https://raw.githubusercontent.com/glauciellesa/staff-table/master/src/data/funcionarios.json'
         try {
             const response = await axios.get(url)
             data = response.data

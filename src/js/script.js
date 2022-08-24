@@ -77,29 +77,31 @@ async function filterStaffByKeyword(keyword) {
 
 /* ================ Sort table both numerically and alphabetically ================= */
 
-function compareEmployee(employee1, employee2) {
-    if (employee1[dataset.key] < employee2[dataset.key]) {
-        if (dataset.sort === 'asc') {
-            return -1
+function createCompareEmployee(dataset) {
+    return function compareEmployee(employee1, employee2) {
+        if (employee1[dataset.key] < employee2[dataset.key]) {
+            if (dataset.sort === 'asc') {
+                return -1
+            }
+            if (dataset.sort === 'desc') {
+                return 1
+            }
+            
         }
-        if (dataset.sort === 'desc') {
-            return 1
+        if (employee1[dataset.key] > employee2[dataset.key]) {
+            if (dataset.sort === 'asc') {
+                return 1
+            }
+            if (dataset.sort === 'desc') {
+                return -1
+            }
         }
-        
+        return 0
     }
-    if (employee1[dataset.key] > employee2[dataset.key]) {
-        if (dataset.sort === 'asc') {
-            return 1
-        }
-        if (dataset.sort === 'desc') {
-            return -1
-        }
-    }
-    return 0
 }
 
-async function sortTable(dataset) {
-    staff.sort(compareEmployee)
+function sortTable(dataset) {
+    staff.sort(createCompareEmployee(dataset))
     if (dataset.sort === 'asc') {
         dataset.sort = 'desc'
     } else {

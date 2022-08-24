@@ -1,5 +1,6 @@
 export default {
-    root: 'docs',
+    base: '/staff-table/',
+    root: 'src',
     build: {
         outDir: '../dist',
     }
