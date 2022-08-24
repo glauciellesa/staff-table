@@ -9,17 +9,22 @@
         -clt-text: #ddd;
     }
 } */
-
-h1{
-    color:var(--clr-text);
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+h1 {
+    color: var(--clr-text);
 }
 
-body{
+.container {
     padding: 20px;
+    width: 100%;
 }
 
 /* ============== Search engine ============== */
-.search-engine{
+.search-engine {
     background-color: var(--clr-base);
     border: solid 2px var(--clr-text);
     display: flex;
@@ -30,50 +35,46 @@ body{
     height: 32px;
 }
 
-.search-text{
+.search-text {
     background-color: transparent;
     padding-left: 5px;
     font-size: 18px;
     border: none;
     width: 190px;
     height: 32px;
+    outline: none;
 }
 
-.search-bnt{
+.search-bnt {
     font-weight: bold;
     background-color: var(--clr-text);
     color: whitesmoke;
     border-radius: 0 7px 7px 0;
     border: none;
     width: 60px;
-    height: 32px;
+
 }
-.search-icon{
-    color:#009870;
+
+.search-icon {
+    color: #009870;
     align-self: center;
     font-size: 25px;
     width: 30px;
     padding-left: 7px;
 }
 
-.hidden{
-    display: none;
-}
 
 /* ============== Table ============== */
-.content-table{
+.content-table {
     border-collapse: collapse;
     margin: 25px 0;
     font-size: 0.9em;
-    min-width: 400px;
-    border-radius: 5px 5px 0 0;
-    overflow: hidden;
+    border-radius: 5px 5px 0 0;   
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-    
 }
 
-.content-table thead th{
-    background-color:var(--clr-text);
+.content-table thead th {
+    background-color: var(--clr-text);
     color: whitesmoke;
     text-align: left;
     font-weight: bold;
@@ -81,7 +82,7 @@ body{
 }
 
 .content-table th,
-.content-table td{
+.content-table td {
     padding: 12px 15px;
 }
 
@@ -89,13 +90,11 @@ body{
     border-bottom: 1px solid #dddddd;
 }
 
-.content-table tbody tr:nth-of-type(even){ /* Selects the even element of div siblings */
+.content-table tbody tr:nth-of-type(even) {
+    /* Selects the even element of div siblings */
     background-color: #f3f3f3;
 }
 
-.content-table tbody tr:last-of-type{
+.content-table tbody tr:last-of-type {
     border-bottom: 2px solid #009879;
 }
-
-
-
