@@ -1,4 +1,4 @@
-import './style.css'
+import '../css/style.css'
 /* =========== Import services.js  =========== */
 import {getData} from './services.js'
 
