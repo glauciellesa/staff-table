@@ -1,11 +1,15 @@
 import '../css/style.css'
 /* =========== Import services.js  =========== */
-import {getData} from './services.js'
+import { getData } from './services.js'
 
-/* =========== Fill table =========== */
+/* ================ Variables ================= */
+let staff = []
+
+/* ================ Fill table ================= */
 async function init() {
-    const staff = await getData()
+    staff = await getData()
     fillStaffTable(staff)
+
     registerHandleEvents()
 }
 
@@ -23,15 +27,15 @@ function fillStaffTable(staff) {
     staff.forEach(employee => {
         const tr = document.createElement('tr')
         tr.innerHTML = `
-            <td> ${employee.id} </td>
-            <td> ${employee.nome} </td>
-            <td> ${employee.sobrenome} </td>
-            <td> ${employee.email} </td>
-            <td> ${employee.genero} </td>
-            <td> ${employee.cidade} </td>
-            <td> ${employee.pais} </td>
-            <td> ${employee.empresa} </td>
-            <td> ${employee.salario} </td>
+        <td> ${employee.id} </td>
+        <td> ${employee.nome} </td>
+        <td> ${employee.sobrenome} </td>
+        <td> ${employee.email} </td>
+        <td> ${employee.genero} </td>
+        <td> ${employee.cidade} </td>
+        <td> ${employee.pais} </td>
+        <td> ${employee.empresa} </td>
+        <td> ${employee.salario} </td>
         `
         tbody.append(tr)
         table.append(tbody)
@@ -39,15 +43,18 @@ function fillStaffTable(staff) {
 }
 
 /* =========== Search input =========== */
-async function filterStaffByKeyword(keyword) {
-    const staff = await getData()
-    const staffFiltered = staff.filter(employee => {
-        const values = Object.values(employee)
-        return values.some(value => {
-            return String(value).toUpperCase().includes(keyword)
+function registerHandleEvents() {
+    document.querySelectorAll("th[data-key]").forEach(th => {
+        th.addEventListener('click', () => {
+            sortTable(th.dataset)
         })
     })
-    fillStaffTable(staffFiltered)
+    document.getElementById('search_button').addEventListener('click', searchStaff)
+    document.getElementById('keyword').addEventListener('keypress', e => {
+        if (e.key === 'Enter') {
+            searchStaff()
+        }
+    })
 }
 
 function searchStaff() {
@@ -55,13 +62,51 @@ function searchStaff() {
     filterStaffByKeyword(searchKeyword)
 }
 
-function registerHandleEvents() {
-    document.getElementById('search_button').addEventListener('click', searchStaff)
-    document.getElementById('keyword').addEventListener('keypress', e => {
-        if (e.key === 'Enter') {
-            searchStaff()
-        }
+async function filterStaffByKeyword(keyword) {
+    staff = await getData()
+    staff = staff.filter(employee => {
+        const values = Object.values(employee)
+        return values.some(value => {
+            return String(value).toUpperCase().includes(keyword)
+        })
     })
+    fillStaffTable(staff)
+}
+
+/* ================ Pagination ================= */
+
+/* ================ Sort table both numerically and alphabetically ================= */
+
+function compareEmployee(employee1, employee2) {
+    if (employee1[dataset.key] < employee2[dataset.key]) {
+        if (dataset.sort === 'asc') {
+            return -1
+        }
+        if (dataset.sort === 'desc') {
+            return 1
+        }
+        
+    }
+    if (employee1[dataset.key] > employee2[dataset.key]) {
+        if (dataset.sort === 'asc') {
+            return 1
+        }
+        if (dataset.sort === 'desc') {
+            return -1
+        }
+    }
+    return 0
+}
+
+async function sortTable(dataset) {
+    staff.sort(compareEmployee)
+    if (dataset.sort === 'asc') {
+        dataset.sort = 'desc'
+    } else {
+        dataset.sort = 'asc'
+    }
+
+    fillStaffTable(staff)
 }
 
 init()
