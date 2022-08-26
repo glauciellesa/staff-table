@@ -21,7 +21,6 @@ h1 {
 
 .container {
   padding: 20px;
-  width: 100%;
 }
 
 /* ============== Search engine ============== */
@@ -70,7 +69,7 @@ h1 {
   font-size: 0.9em;
   border-radius: 5px 5px 0 0;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-  width: 100%;
+  overflow: auto;
 }
 
 .content-table thead th {
@@ -78,6 +77,10 @@ h1 {
   color: whitesmoke;
   text-align: left;
   font-weight: bold;
+  position: sticky;
+  top: 0;
+  min-width: 75%;
+  width: 100%;
 }
 
 .content-table thead th::after {
