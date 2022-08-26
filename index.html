@@ -1,50 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- ==== UNICONS ==== -->
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+    />
 
     <!-- =======JS====== -->
     
     <!-- defer é uma tag que carregara tudo ao mesmo tempo, no entanto só será exutado apos o DOM estiver pronto -->
 
     <title>Document</title>
-  <script type="module" crossorigin src="/staff-table/assets/index.c1229aab.js"></script>
-  <link rel="stylesheet" href="/staff-table/assets/index.f22acd88.css">
-</head>
+    <script type="module" crossorigin src="/staff-table/assets/index.d804883c.js"></script>
+    <link rel="stylesheet" href="/staff-table/assets/index.7d2d036e.css">
+  </head>
 
-<body>
+  <body>
     <div class="container">
-        <h1>Staff table</h1>
+      <h1>Staff table</h1>
 
-        <div class="search-engine">
-            <i class="uil uil-search search-icon"></i>
-            <input type="text" class="search-text" id="keyword" placeholder="Type keywords">
-            <button class="search-bnt" id="search_button">Search</button>
-        </div>
-        <table id="staff" class="content-table" style="overflow-x: auto;" aria-label="Lista de funcionários">
-            <thead>
-                <tr>
-                    <th data-key="id" data-sort="asc">Id</th>
-                    <th data-key="nome" data-sort="asc">Name</th>
-                    <th data-key="sobrenome" data-sort="asc">Last name</th>
-                    <th data-key="email" data-sort="asc">Email</th>
-                    <th data-key="genero" data-sort="asc">Gender</th>
-                    <th data-key="cidade" data-sort="asc">City</th>
-                    <th data-key="pais" data-sort="asc">Country</th>
-                    <th data-key="empresa" data-sort="asc">Company</th>
-                    <th data-key="salario" data-sort="asc">Salary</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
+      <div class="search-engine">
+        <i class="uil uil-search search-icon"></i>
+        <input
+          type="text"
+          class="search-text"
+          id="keyword"
+          placeholder="Type keywords"
+        />
+        <button class="search-bnt" id="search_button">Search</button>
+      </div>
+      <table
+        id="staff"
+        class="content-table"
+        style="overflow-x: auto"
+        aria-label="Lista de funcionários"
+      >
+        <thead>
+          <tr>
+            <th data-key="id" data-sort="asc" data-sort-icon="▴">Id</th>
+            <th data-key="nome" data-sort="asc" data-sort-icon="▴">Name</th>
+            <th data-key="sobrenome" data-sort="asc" data-sort-icon="▴">
+              Last name
+            </th>
+            <th data-key="email" data-sort="asc" data-sort-icon="▴">Email</th>
+            <th data-key="genero" data-sort="asc" data-sort-icon="▴">Gender</th>
+            <th data-key="cidade" data-sort="asc" data-sort-icon="▴">City</th>
+            <th data-key="pais" data-sort="asc" data-sort-icon="▴">Country</th>
+            <th data-key="empresa" data-sort="asc" data-sort-icon="▴">
+              Company
+            </th>
+            <th data-key="salario" data-sort="asc" data-sort-icon="▴">
+              Salary
+            </th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
     </div>
-</body>
-
+  </body>
 </html>
