@@ -105,3 +105,12 @@ h1 {
 .content-table tbody tr:last-of-type {
   border-bottom: 2px solid var(--clr-text);
 }
+
+/* ============== Pagination ============== */
+.pagination-pages {
+  text-align: right;
+}
+.pagination-pages > * {
+  margin-right: 0.5rem;
+  color: var(--clr-text);
+}

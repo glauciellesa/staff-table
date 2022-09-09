@@ -3,12 +3,17 @@ import "../css/style.css"
 import { getData } from "./services.js"
 
 /* ================ Variables ================= */
+let originalStaff = []
 let staff = []
+let currentPage = 1
+let itemsPerPage = 20
 
 /* ================ Fill table ================= */
 async function init() {
-  staff = await getData()
-  fillStaffTable(staff)
+  originalStaff = await getData()
+  staff = originalStaff
+  createPagination()
+  fillStaffTable()
 
   registerHandleEvents()
 }
@@ -21,7 +26,9 @@ function createTbody(table) {
   return document.createElement("tbody")
 }
 
-function fillStaffTable(staff) {
+function fillStaffTable() {
+  paginate()
+
   const table = document.getElementById("staff")
   const tbody = createTbody(table)
   staff.forEach((employee) => {
@@ -64,18 +71,16 @@ function searchStaff() {
   filterStaffByKeyword(searchKeyword)
 }
 
-async function filterStaffByKeyword(keyword) {
-  staff = await getData()
+function filterStaffByKeyword(keyword) {
+  staff = originalStaff
   staff = staff.filter((employee) => {
     const values = Object.values(employee)
     return values.some((value) => {
       return String(value).toUpperCase().includes(keyword)
     })
   })
-  fillStaffTable(staff)
+  fillStaffTable()
 }
-
-/* ================ Pagination ================= */
 
 /* ================ Sort table both numerically and alphabetically ================= */
 
@@ -111,7 +116,33 @@ function sortTable(dataset) {
     dataset.sortIcon = "▾"
   }
 
-  fillStaffTable(staff)
+  fillStaffTable()
+}
+
+/* ================ Pagination ================= */
+
+function paginate() {
+  staff = originalStaff
+  staff = staff.slice(
+    itemsPerPage * (currentPage - 1),
+    itemsPerPage * currentPage,
+  )
+}
+
+/* ================ Create paginator ================= */
+
+function createPagination() {
+  let numberOfPage = Math.ceil(staff.length / itemsPerPage)
+  const pagination = document.getElementById("pagination")
+  for (let p = 1; p <= numberOfPage; p++) {
+    const page = document.createElement("span")
+    page.innerHTML = `${p}`
+    pagination.appendChild(page)
+    page.addEventListener("click", () => {
+      currentPage = p
+      fillStaffTable()
+    })
+  }
 }
 
 init()
