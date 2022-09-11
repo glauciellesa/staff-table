@@ -4,6 +4,7 @@ import { getData } from "./services.js"
 
 /* ================ Variables ================= */
 let originalStaff = []
+let filteredStaff = []
 let staff = []
 let currentPage = 1
 let itemsPerPage = 10
@@ -12,6 +13,7 @@ let itemsPerPage = 10
 async function init() {
   originalStaff = await getData()
   staff = originalStaff
+  filteredStaff = staff
   createPagination()
   paginate()
   fillStaffTable()
@@ -78,7 +80,9 @@ function filterStaffByKeyword(keyword) {
       return String(value).toUpperCase().includes(keyword)
     })
   })
+  filteredStaff = staff
   createPagination()
+  paginate()
   fillStaffTable()
 }
 
@@ -122,7 +126,7 @@ function sortTable(dataset) {
 /* ================ Pagination ================= */
 
 function paginate() {
-  staff = originalStaff
+  staff = filteredStaff
   staff = staff.slice(
     itemsPerPage * (currentPage - 1),
     itemsPerPage * currentPage,
