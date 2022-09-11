@@ -108,9 +108,22 @@ h1 {
 
 /* ============== Pagination ============== */
 .pagination-pages {
-  text-align: right;
+  text-align: center;
+  display: flex;
+  justify-content: center;
 }
 .pagination-pages > * {
-  margin-right: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 2rem;
   color: var(--clr-text);
+  cursor: pointer;
+}
+.page-selected {
+  font-size: 90%;
+  color: var(--clr-base);
+  background-color: var(--clr-text);
+  font-weight: bold;
+  border-radius: 20%;
 }

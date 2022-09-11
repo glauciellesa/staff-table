@@ -139,12 +139,22 @@ function createPagination() {
     const page = document.createElement("span")
     page.innerHTML = `${p}`
     pagination.appendChild(page)
+
     page.addEventListener("click", () => {
       currentPage = p
       paginate()
       fillStaffTable()
+
+      styleSelectedPage(pagination, page)
     })
   }
+}
+
+function styleSelectedPage(pagination, page) {
+  Array.from(pagination.children).forEach((child) => {
+    child.classList.remove("page-selected")
+  })
+  page.classList.add("page-selected")
 }
 
 init()
