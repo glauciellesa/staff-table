@@ -143,6 +143,9 @@ function createPagination() {
     const page = document.createElement("span")
     page.innerHTML = `${p}`
     pagination.appendChild(page)
+    if (p == 1) {
+      page.classList.add("page-selected")
+    }
 
     page.addEventListener("click", () => {
       currentPage = p
@@ -153,6 +156,8 @@ function createPagination() {
     })
   }
 }
+
+/* ================ Style to page selected ================= */
 
 function styleSelectedPage(pagination, page) {
   Array.from(pagination.children).forEach((child) => {
