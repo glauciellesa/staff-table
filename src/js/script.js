@@ -6,13 +6,14 @@ import { getData } from "./services.js"
 let originalStaff = []
 let staff = []
 let currentPage = 1
-let itemsPerPage = 20
+let itemsPerPage = 10
 
 /* ================ Fill table ================= */
 async function init() {
   originalStaff = await getData()
   staff = originalStaff
   createPagination()
+  paginate()
   fillStaffTable()
 
   registerHandleEvents()
@@ -27,8 +28,6 @@ function createTbody(table) {
 }
 
 function fillStaffTable() {
-  paginate()
-
   const table = document.getElementById("staff")
   const tbody = createTbody(table)
   staff.forEach((employee) => {
@@ -79,6 +78,7 @@ function filterStaffByKeyword(keyword) {
       return String(value).toUpperCase().includes(keyword)
     })
   })
+  createPagination()
   fillStaffTable()
 }
 
@@ -134,12 +134,14 @@ function paginate() {
 function createPagination() {
   let numberOfPage = Math.ceil(staff.length / itemsPerPage)
   const pagination = document.getElementById("pagination")
+  pagination.innerHTML = ""
   for (let p = 1; p <= numberOfPage; p++) {
     const page = document.createElement("span")
     page.innerHTML = `${p}`
     pagination.appendChild(page)
     page.addEventListener("click", () => {
       currentPage = p
+      paginate()
       fillStaffTable()
     })
   }
