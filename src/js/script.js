@@ -132,7 +132,10 @@ function paginate() {
     itemsPerPage * currentPage,
   )
 }
-
+/* ================ Display Pagination ================= */
+function displayPagination(staff) {
+  console.log(staff)
+}
 /* ================ Create paginator ================= */
 
 function createPagination() {
@@ -151,7 +154,6 @@ function createPagination() {
       currentPage = p
       paginate()
       fillStaffTable()
-
       styleSelectedPage(pagination, page)
     })
   }
