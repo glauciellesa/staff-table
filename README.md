@@ -16,7 +16,7 @@ In this project I learned how to use the AXIOS API to retrieve my data and displ
 ![VS Code Insiders](https://img.shields.io/badge/VS%20Code%20Insiders-35b393.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
 ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
 
-# Funcionalidades 💫
+# Functionalities 💫
 
 - When the search button is pressed, the results are showed up.
 - Pagination links update depending on the number of search results.
