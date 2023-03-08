@@ -18,7 +18,7 @@ In this project I learned how to use the AXIOS API to retrieve my data and displ
 
 # Functionalities 💫
 
-- When the search button is pressed, the results are showed up.
+- When the search button is pressed, the results are displayed.
 - Pagination links update depending on the number of search results.
 - Sort table both numerically and alphabetically
 
